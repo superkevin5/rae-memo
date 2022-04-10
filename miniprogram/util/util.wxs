@@ -1,0 +1,54 @@
+var msToHMS = function msToHMS( ISOTimeString ) {
+
+  var newDate = getDate(ISOTimeString);
+  //var newDate = getDate(newTime.getTime() - (offsetInMinutes * 60000));
+
+  //var date = getDate(timestamp);//时间戳为10位需*1000
+  //var newDate = getDate(date.getTime()+date.getTimezoneOffset()*60*1000)
+
+  var Y = newDate.getFullYear() + '-';
+  var M = (newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1) + '-';
+  var D = newDate.getDate() + ' ';
+  var h = newDate.getHours() + ':';
+  var m = newDate.getMinutes() + ' - ';
+  var s = newDate.getSeconds();
+  return h + m
+}
+
+
+var getCurrentDate = function getCurrentDate(  ) {
+
+  var newDate = getDate();
+
+  var Y = newDate.getFullYear() + '-';
+  var M = (newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1) + '-';
+  var D = newDate.getDate() + ' ';
+  return Y + M + D
+}
+
+var getCurrentDay = function getCurrentDay(  ) {
+
+  var newDate = getDate();
+  var day = newDate.getDay();
+
+  switch(day){
+    case 0: return '周日';
+     case 1: return '周一';
+      case 2: return '周二';
+       case 3: return '周三';
+        case 4: return '周四';
+         case 5: return '周五';
+          case 6: return '周六';
+  }
+}
+
+
+
+module.exports = {
+    msToHMS: msToHMS,
+    getCurrentDate: getCurrentDate,
+    getCurrentDay: getCurrentDay
+}
+
+
+

@@ -1,9 +1,48 @@
 /**index.wxss**/
 
 page {
-  padding-top: 54rpx;
   background-color: #f6f6f6;
-  padding-bottom: 60rpx;
+  overflow: hidden;
+}
+.title {
+  position:absolute;
+  top: 0;
+  width: 100%;
+  height: 50rpx;
+  box-sizing: border-box;
+}
+
+.time_block_container {
+  overflow-y: scroll;
+  position: absolute;
+  top: 80rpx;
+  width:100%;
+  height:90%;
+
+}
+.time_block {
+  display: flex;
+  justify-content: flex-start;
+  height:70px;
+  padding:0rpx 0rpx 0rpx 20rpx;
+
+}
+
+.time_block_event {
+  font-size: 20rpx;
+}
+
+.time_block_name {
+  border-top: solid 1px;
+  font-size: 30rpx;
+  width: 20%;
+}
+
+.time_block_body {
+  width: 80%;
+  border-top: solid 1px;
+  border-left: solid 1px;
+  overflow: hidden;
 }
 
 .title {
@@ -11,7 +50,6 @@ page {
   font-weight: 500;
   color: #000000;
   font-size: 44rpx;
-  margin-bottom: 40rpx;
 }
 
 .top_tip {
