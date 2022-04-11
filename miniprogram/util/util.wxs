@@ -27,10 +27,8 @@ var getCurrentDate = function getCurrentDate(  ) {
 }
 
 var getCurrentDay = function getCurrentDay(  ) {
-
   var newDate = getDate();
   var day = newDate.getDay();
-
   switch(day){
     case 0: return '周日';
      case 1: return '周一';
@@ -41,7 +39,6 @@ var getCurrentDay = function getCurrentDay(  ) {
           case 6: return '周六';
   }
 }
-
 
 
 module.exports = {

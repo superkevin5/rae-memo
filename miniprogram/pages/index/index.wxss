@@ -49,9 +49,30 @@ page {
   font-family: PingFang SC;
   font-weight: 500;
   color: #000000;
-  font-size: 44rpx;
+  font-size: 30rpx;
+  display: inline-flex;
+  justify-content: space-between;
+  border: solid 1px;
+}
+.day {
+  border: solid 1px;
+}
+.arrow {
+  border: solid black;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
 }
 
+.right {
+  transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+}
+
+.left {
+  transform: rotate(135deg);
+  -webkit-transform: rotate(135deg);
+}
 .top_tip {
   font-size: 28rpx;
   font-family: PingFang SC;

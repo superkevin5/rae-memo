@@ -2,7 +2,15 @@
 <wxs module="filter" src="../../util/util.wxs"></wxs>
 <view class="container">
 
-  <view class="title">Calendar {{filter.getCurrentDate()}} {{filter.getCurrentDay()}}</view>
+  <view class="title">
+
+    <view class="day">{{filter.getCurrentDate()}} {{filter.getCurrentDay()}}</view>
+
+    <view class="arrows">
+      <i class="arrow left"></i>
+      <i class="arrow right"></i>
+    </view>
+  </view>
 
 
   <view class="time_block_container">
