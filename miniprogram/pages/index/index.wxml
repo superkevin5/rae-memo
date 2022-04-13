@@ -5,6 +5,8 @@
   <view class="title">
     <view class="title_choose_day">
     <van-button size="small" plain type="info" bind:click="onDisplay">选择日期</van-button>
+      <van-button size="small" plain type="info" bind:click="createEvent">创建预约</van-button>
+
     </view>
     <view class="day">{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}}</view>
 
@@ -55,3 +57,37 @@
   <!--<cloud-tip-modal showUploadTipProps="{{showUploadTip}}"></cloud-tip-modal>-->
 
 </view>
+<van-dialog id="van-dialog" />
+<van-dialog
+        use-slot
+        title="{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}} 开始创建备忘"
+        show="{{ showDialog }}"
+        show-cancel-button
+        confirm-button-open-type="getUserInfo"
+        bind:close="onCloseDialog"
+        bind:getuserinfo="getUserInfo"
+>
+  <view>
+    开始时间
+    <van-datetime-picker
+            type="datetime"
+            value="{{ currentDate }}"
+            min-date="{{ minDate }}"
+            max-date="{{ maxDate }}"
+            bind:input="onInput"
+    />
+  </view>
+  <!--<view>-->
+    <!--结束时间-->
+    <!--<van-datetime-picker-->
+            <!--type="datetime"-->
+            <!--value="{{ currentDate }}"-->
+            <!--min-date="{{ minDate }}"-->
+            <!--max-date="{{ maxDate }}"-->
+            <!--bind:input="onInput"-->
+    <!--/>-->
+  <!--</view>-->
+
+
+</van-dialog>
+
