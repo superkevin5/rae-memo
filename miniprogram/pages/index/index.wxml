@@ -1,14 +1,16 @@
 <!--index.wxml-->
 <wxs module="filter" src="../../util/util.wxs"></wxs>
 <view class="container">
-
+  <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm" />
   <view class="title">
-
-    <view class="day">{{filter.getCurrentDate()}} {{filter.getCurrentDay()}}</view>
+    <view class="title_choose_day">
+    <van-button size="small" plain type="info" bind:click="onDisplay">选择日期</van-button>
+    </view>
+    <view class="day">{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}}</view>
 
     <view class="arrows">
-      <i class="arrow left"></i>
-      <i class="arrow right"></i>
+      <i class="arrow left" bindtap="preDay"></i>
+      <i class="arrow right" bindtap="nextDay"></i>
     </view>
   </view>
 

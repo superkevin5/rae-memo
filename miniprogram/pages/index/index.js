@@ -5,6 +5,8 @@ const util = require('../../util/util.js')
 
 Page({
     data: {
+        date: new Date().toISOString(),
+        showCalendar: false,
 
         timeBlocks:[
             {
@@ -264,6 +266,40 @@ Page({
         envList,
         selectedEnv: envList[ 0 ],
         haveCreateCollection: false
+    },
+
+    onDisplay() {
+        this.setData({ showCalendar: true });
+    },
+    onClose() {
+        this.setData({ showCalendar: false });
+    },
+    formatDate(date) {
+        date = new Date(date);
+        return date.toISOString()
+    },
+    preDay(){
+
+        const currentDate = Date.parse( this.data.date)
+        const preDay = new Date(currentDate);
+        preDay.setDate(preDay.getDate() - 1);
+        this.setData({
+            date: this.formatDate(preDay),
+        });
+    },
+    nextDay() {
+        const currentDate = Date.parse( this.data.date)
+        const nextDay = new Date(currentDate);
+        nextDay.setDate(nextDay.getDate() + 1);
+        this.setData({
+            date: this.formatDate(nextDay),
+        });
+    },
+    onConfirm(event) {
+        this.setData({
+            showCalendar: false,
+            date: this.formatDate(event.detail),
+        });
     },
 
     onClickPowerInfo( e ) {

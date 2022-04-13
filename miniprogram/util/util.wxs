@@ -16,9 +16,9 @@ var msToHMS = function msToHMS( ISOTimeString ) {
 }
 
 
-var getCurrentDate = function getCurrentDate(  ) {
+var getCurrentDate = function getCurrentDate(ISOTimeString) {
 
-  var newDate = getDate();
+  var newDate = getDate(ISOTimeString);
 
   var Y = newDate.getFullYear() + '-';
   var M = (newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1) + '-';
@@ -26,8 +26,8 @@ var getCurrentDate = function getCurrentDate(  ) {
   return Y + M + D
 }
 
-var getCurrentDay = function getCurrentDay(  ) {
-  var newDate = getDate();
+var getCurrentDay = function getCurrentDay(ISOTimeString) {
+  var newDate = getDate(ISOTimeString);
   var day = newDate.getDay();
   switch(day){
     case 0: return '周日';

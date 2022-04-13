@@ -1,0 +1,22 @@
+{
+  "name": "rae-memo",
+  "version": "1.0.0",
+  "description": "这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://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@github.com/superkevin5/rae-memo.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/superkevin5/rae-memo/issues"
+  },
+  "homepage": "https://github.com/superkevin5/rae-memo#readme",
+  "dependencies": {
+    "@vant/weapp": "^1.10.2"
+  }
+}
