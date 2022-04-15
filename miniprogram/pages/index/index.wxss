@@ -62,6 +62,14 @@ page {
   width: 150rpx;
   justify-content: space-evenly;
 }
+.arrows wx-van-button {
+  width: 70rpx;
+}
+.arrows wx-button {
+  width: 50rpx;
+  border: none;
+  background-color: transparent;
+}
 .arrow {
   border: solid black;
   border-width: 0 3px 3px 0;

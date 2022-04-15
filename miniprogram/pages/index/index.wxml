@@ -4,15 +4,20 @@
   <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm" />
   <view class="title">
     <view class="title_choose_day">
-    <van-button size="small" plain type="info" bind:click="onDisplay">选择日期</van-button>
-      <van-button size="small" plain type="info" bind:click="createEvent">创建预约</van-button>
+    <van-button size="mini" plain type="info" bind:click="onDisplay">选择日期</van-button>
+      <van-button size="mini" plain type="info" bind:click="createEvent">创建预约</van-button>
 
     </view>
     <view class="day">{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}}</view>
 
     <view class="arrows">
-      <i class="arrow left" bindtap="preDay"></i>
-      <i class="arrow right" bindtap="nextDay"></i>
+      <van-button size="mini" plain type="info" bind:click="preDay">
+        <i class="arrow left"></i>
+      </van-button>
+      <van-button size="mini" plain type="info" bindtap="nextDay">
+        <i class="arrow right"></i>
+      </van-button>
+
     </view>
   </view>
 
