@@ -164,3 +164,6 @@ page {
   font-size: 24rpx;
   margin-top: 25%;
 }
+#van-dialog .van-field__body--textarea {
+  min-height: 100px;
+}

@@ -146,9 +146,17 @@ function setimeBlocks(currentISOString) {
     } catch (e) { }
 }
 
+function getCurrentHAndM() {
+    const currentDate = new Date()
+    const h = currentDate.getHours()
+    const m = currentDate.getMinutes()
+    return String(h) + ':'  + String(m)
+}
+
 module.exports = {
     msToHMS: msToHMS,
-    getPageTimeBlocks:getPageTimeBlocks
+    getPageTimeBlocks:getPageTimeBlocks,
+    getCurrentHAndM: getCurrentHAndM
 }
 
 

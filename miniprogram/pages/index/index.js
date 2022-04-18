@@ -2,7 +2,6 @@
 // const app = getApp()
 const { envList } = require('../../envList.js');
 const util = require('../../util/util.js')
-import Dialog from "@vant/weapp/dialog/dialog";
 
 
 Page({
