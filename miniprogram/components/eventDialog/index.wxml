@@ -7,9 +7,10 @@
         show="{{ showDialog }}"
         show-cancel-button
         showConfirmButton="true"
-        confirm-button-open-type="getUserInfo"
         bind:close="onCloseDialog"
-        bind:getuserinfo="getUserInfo"
+        confirmButtonText="保存"
+        bind:confirm="onSave"
+
 >
   <view>
     <van-datetime-picker

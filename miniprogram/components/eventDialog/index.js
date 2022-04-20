@@ -53,6 +53,24 @@ Component({
                 eventDetail: e.detail
             });
         },
+        onSave(e) {
+
+            const end = this.data.eventEndTime.split(':')
+            const start = this.data.eventStartTime.split(':')
+
+            const startDateObj = new Date(this.data.date)
+            startDateObj.setHours(start[0])
+            startDateObj.setMinutes(start[1])
+
+            console.log(startDateObj.toISOString())
+
+            const endDateObj = new Date(this.data.date)
+            endDateObj.setHours(end[0])
+            endDateObj.setMinutes(end[1])
+
+            console.log(endDateObj.toISOString())
+
+        }
     }
 
 });

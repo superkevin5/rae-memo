@@ -30,7 +30,7 @@ page {
 .time_block {
   display: flex;
   justify-content: flex-start;
-  height:100px;
+  height:180px;
   padding:0rpx 0rpx 0rpx 20rpx;
 
 }
@@ -42,11 +42,11 @@ page {
 .time_block_name {
   border-top: solid 1px;
   font-size: 30rpx;
-  width: 20%;
+  width: 12%;
 }
 
 .time_block_body {
-  width: 80%;
+  width: 88%;
   border-top: solid 1px;
   border-left: solid 1px;
   overflow: hidden;
