@@ -269,6 +269,43 @@ Page({
         selectedEnv: envList[ 0 ],
         haveCreateCollection: false
     },
+    onLoad(options) {
+      this.loadPages(this.data.timeBlocks)
+    },
+    loadPages(timeBlocks){
+        const openId = wx.getStorageSync('openId')
+        if(!openId) {
+            wx.cloud.callFunction({
+                name: 'quickstartFunctions',
+                config: {
+                    env: 'cloud1-4ggrpycl7d92f793'
+                },
+                data: {
+                    type: 'getOpenId'
+                }
+            }).then((resp) => {
+                try {
+                    wx.setStorageSync('openId', resp.result.openid)
+                } catch (e) { }
+
+            }).catch((e) => {
+                console.log(e)
+            });
+        }
+
+        const currentIsoStringDay = this.data.date.split('T')[0]
+        const db = wx.cloud.database()
+        db.collection('memodb').where({
+            _openid: openId,
+            isoStringDay: currentIsoStringDay
+        }).get({
+            success: res => {
+                const data = res.data
+                const newTimeBlocks = util.formatTimeBlocktResponse(data, timeBlocks)
+                this.setData({ timeBlocks: newTimeBlocks });
+            }
+        })
+    },
 
     onDisplay() {
         this.setData({ showCalendar: true });
@@ -291,6 +328,7 @@ Page({
         this.setData({
             date: this.formatDate(preDay),
         });
+        this.loadPages(util.getPageTimeBlocks())
     },
     nextDay() {
         const currentDate = Date.parse( this.data.date)
@@ -299,6 +337,7 @@ Page({
         this.setData({
             date: this.formatDate(nextDay),
         });
+        this.loadPages(util.getPageTimeBlocks())
     },
     onConfirm(event) {
         this.setData({

@@ -24,11 +24,11 @@
 
   <view class="time_block_container">
 
-    <view class="time_block" wx:for="{{timeBlocks}}" wx:key="{{timeBlock.id}}" wx:for-item="timeBlock">
+    <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock">
       <view class="time_block_name">{{timeBlock.time}}</view>
       <view class="time_block_body">
-        <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="{{event.id}}" wx:for-item="event">
-          <view>{{filter.msToHMS(event.timeStart)}} {{event.description}}</view>
+        <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="id" wx:for-item="event">
+          <view>{{filter.msToHMS(event.startTime)}} - {{filter.msToHMS(event.endTime)}} : {{event.description}}</view>
         </view>
 
 

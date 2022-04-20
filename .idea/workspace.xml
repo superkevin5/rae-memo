@@ -2,9 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3e5ae7cf-e03c-410b-a7dd-d34bf29b8572" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/miniprogram/components/eventDialog/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/eventDialog/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.wxss" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.wxss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/util/util.js" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/util/util.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/miniprogram/util/util.wxs" beforeDir="false" afterPath="$PROJECT_DIR$/miniprogram/util/util.wxs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,49 +23,51 @@
           <entry key="project.closed" value="2" />
           <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.12" value="1" />
+          <entry key="project.open.time.19" value="1" />
           <entry key="project.open.time.6" value="1" />
-          <entry key="project.opened" value="3" />
+          <entry key="project.opened" value="4" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="17" />
+          <entry key="js" value="22" />
           <entry key="json" value="14" />
           <entry key="md" value="1" />
           <entry key="png" value="1" />
           <entry key="svg" value="2" />
-          <entry key="wxml" value="3" />
-          <entry key="wxss" value="10" />
+          <entry key="wxml" value="5" />
+          <entry key="wxs" value="1" />
+          <entry key="wxss" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="HTML" value="2" />
+          <entry key="HTML" value="4" />
           <entry key="Image" value="1" />
           <entry key="JSON" value="14" />
-          <entry key="JavaScript" value="17" />
+          <entry key="JavaScript" value="22" />
           <entry key="Markdown" value="1" />
-          <entry key="PLAIN_TEXT" value="3" />
+          <entry key="PLAIN_TEXT" value="4" />
           <entry key="SVG" value="2" />
-          <entry key="Wxss" value="8" />
+          <entry key="Wxss" value="9" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2452" />
+          <entry key="js" value="4058" />
           <entry key="json" value="110" />
           <entry key="svg" value="15" />
-          <entry key="wxml" value="1095" />
-          <entry key="wxs" value="232" />
+          <entry key="wxml" value="1118" />
+          <entry key="wxs" value="237" />
           <entry key="wxss" value="1669" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="HTML" value="1095" />
+          <entry key="HTML" value="1118" />
           <entry key="JSON" value="110" />
-          <entry key="JavaScript" value="2452" />
-          <entry key="PLAIN_TEXT" value="232" />
+          <entry key="JavaScript" value="4058" />
+          <entry key="PLAIN_TEXT" value="237" />
           <entry key="SVG" value="15" />
           <entry key="Wxss" value="1669" />
         </counts>
@@ -70,11 +76,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-4074">
-              <caret line="3" column="36" selection-start-line="3" selection-end-line="4" />
+            <state relative-caret-position="277">
+              <caret line="330" column="36" lean-forward="true" selection-start-line="330" selection-start-column="36" selection-end-line="330" selection-end-column="36" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -85,8 +91,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniprogram/util/util.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="148" column="24" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="24" />
+            <state relative-caret-position="225">
+              <caret line="245" column="32" lean-forward="true" selection-start-line="245" selection-start-column="32" selection-end-line="245" selection-end-column="32" />
             </state>
           </provider>
         </entry>
@@ -94,17 +100,26 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.wxml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="39" selection-start-line="39" selection-end-line="40" selection-end-column="99" />
+            <state relative-caret-position="450">
+              <caret line="30" column="32" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="32" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniprogram/app.json">
+        <entry file="file://$PROJECT_DIR$/miniprogram/util/util.wxs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="62" />
+            <state relative-caret-position="105">
+              <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.wxss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="645">
+              <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -112,26 +127,17 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="70" column="49" lean-forward="true" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.wxss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="251">
-              <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+            <state relative-caret-position="945">
+              <caret line="63" selection-start-line="63" selection-end-line="63" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxml">
+        <entry file="file://$PROJECT_DIR$/miniprogram/pages/sumRecordResult/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="180">
+              <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="19" />
             </state>
           </provider>
         </entry>
@@ -139,24 +145,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/miniprogram/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+            <state relative-caret-position="390">
+              <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniprogram/app.wxss">
+        <entry file="file://$PROJECT_DIR$/miniprogram/pages/getOpenId/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="28" selection-end-line="1" />
+            <state relative-caret-position="270">
+              <caret line="18" selection-start-line="18" selection-end-line="42" selection-end-column="4" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.json">
-          <provider selected="true" editor-type-id="text-editor" />
+        <entry file="file://$PROJECT_DIR$/miniprogram/pages/sumRecord/index.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+            </state>
+          </provider>
         </entry>
       </file>
     </leaf>
@@ -170,24 +180,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>showUploadTip</find>
-      <find>arrow.svg</find>
-      <find>title</find>
-      <find>image</find>
-      <find>font</find>
-      <find>getCurrentDate</find>
-      <find>getDate</find>
-      <find>msToHMS</find>
-      <find>onDisplay</find>
-      <find>rpx</find>
-      <find>newDate</find>
-      <find>formatDate</find>
-      <find>create</find>
-      <find>createE</find>
-      <find>close</find>
-      <find>selectRecord</find>
-      <find>cloud-Tip-Mo</find>
-      <find>showUploadTipProps</find>
       <find>click</find>
       <find>cloudTipModal</find>
       <find>filter</find>
@@ -198,8 +190,26 @@
       <find>index.js</find>
       <find>pages/</find>
       <find>install_tip_back</find>
-      <find>onCreateEventEndTime</find>
       <find>showDialog</find>
+      <find>wx.cloud</find>
+      <find>user</find>
+      <find>wx.login</find>
+      <find>record</find>
+      <find>momen</find>
+      <find>wx.cloud.callFunction</find>
+      <find>collectio</find>
+      <find>db.collection</find>
+      <find>load</find>
+      <find>setDa</find>
+      <find>msToHMS</find>
+      <find>console.</find>
+      <find>consol</find>
+      <find>console.l</find>
+      <find>onCreateEventEndTime</find>
+      <find>getPageTimeBlocks</find>
+      <find>function formatTimeBlocktRformatTimeBlocktResponseesponse(data = [], timeBlocks) {</find>
+      <find>formatTimeBlocktResponse</find>
+      <find>loadPages</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -220,17 +230,18 @@
         <option value="$PROJECT_DIR$/miniprogram/util/util.wxs.js" />
         <option value="$PROJECT_DIR$/miniprogram/images/arrow.svg" />
         <option value="$PROJECT_DIR$/project.config.json" />
-        <option value="$PROJECT_DIR$/miniprogram/util/util.wxs" />
         <option value="$PROJECT_DIR$/miniprogram/app.json" />
         <option value="$PROJECT_DIR$/miniprogram/pages/index/index.json" />
         <option value="$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxss" />
-        <option value="$PROJECT_DIR$/miniprogram/pages/index/index.js" />
-        <option value="$PROJECT_DIR$/miniprogram/util/util.js" />
         <option value="$PROJECT_DIR$/miniprogram/app.wxss" />
-        <option value="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" />
-        <option value="$PROJECT_DIR$/miniprogram/components/eventDialog/index.js" />
         <option value="$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxml" />
         <option value="$PROJECT_DIR$/miniprogram/pages/index/index.wxss" />
+        <option value="$PROJECT_DIR$/miniprogram/app.js" />
+        <option value="$PROJECT_DIR$/miniprogram/pages/index/index.wxml" />
+        <option value="$PROJECT_DIR$/miniprogram/util/util.wxs" />
+        <option value="$PROJECT_DIR$/miniprogram/components/eventDialog/index.js" />
+        <option value="$PROJECT_DIR$/miniprogram/util/util.js" />
+        <option value="$PROJECT_DIR$/miniprogram/pages/index/index.js" />
       </list>
     </option>
   </component>
@@ -249,9 +260,9 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
-    <option name="width" value="720" />
+    <option name="width" value="1440" />
     <option name="height" value="837" />
   </component>
   <component name="ProjectView">
@@ -260,6 +271,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -302,20 +314,40 @@
               <item name="rae-memo" type="b2602c69:ProjectViewProjectNode" />
               <item name="rae-memo" type="462c0819:PsiDirectoryNode" />
               <item name="miniprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="sumRecord" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rae-memo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rae-memo" type="462c0819:PsiDirectoryNode" />
+              <item name="miniprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="sumRecordResult" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rae-memo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rae-memo" type="462c0819:PsiDirectoryNode" />
+              <item name="miniprogram" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="uploadFile" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="rae-memo" type="b2602c69:ProjectViewProjectNode" />
+              <item name="rae-memo" type="462c0819:PsiDirectoryNode" />
+              <item name="miniprogram" type="462c0819:PsiDirectoryNode" />
               <item name="util" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650458350414" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1650469738031" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -352,18 +384,19 @@
       <updated>1649482578105</updated>
       <workItem from="1649482581976" duration="377000" />
       <workItem from="1649482985290" duration="14239000" />
-      <workItem from="1649634813999" duration="32390000" />
+      <workItem from="1649634813999" duration="38457000" />
+      <workItem from="1650468867322" duration="859000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47006000" />
+    <option name="totallyTimeSpent" value="53932000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1440" height="837" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19313304" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19599427" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -377,7 +410,7 @@
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2885906" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.2885906" />
       <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="10" show_stripe_button="false" />
@@ -442,20 +475,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/util/util.wxs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="43" selection-start-line="43" selection-end-line="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/pages/getOpenId/index.wxss">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/pages/getOpenId/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-208" />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/util/moment.min.js">
       <provider selected="true" editor-type-id="text-editor">
@@ -494,13 +515,6 @@
     <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxss">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/util/util.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="148" column="24" selection-start-line="148" selection-start-column="9" selection-end-line="148" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.json">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -511,20 +525,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/app.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="62" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="70" column="49" lean-forward="true" selection-start-line="70" selection-start-column="49" selection-end-line="70" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="135">
@@ -532,34 +532,90 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/app.js">
+    <entry file="file://$PROJECT_DIR$/miniprogram/app.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="21" lean-forward="true" selection-start-line="6" selection-start-column="21" selection-end-line="6" selection-end-column="21" />
+        <state relative-caret-position="345">
+          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/pages/sumRecord/index.wxml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="11" column="50" selection-start-line="11" selection-start-column="44" selection-end-line="11" selection-end-column="50" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.wxml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="39" selection-start-line="39" selection-end-line="40" selection-end-column="99" />
+        <state relative-caret-position="450">
+          <caret line="30" column="32" selection-start-line="30" selection-start-column="25" selection-end-line="30" selection-end-column="32" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.js">
+    <entry file="file://$PROJECT_DIR$/miniprogram/util/util.wxs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4074">
-          <caret line="3" column="36" selection-start-line="3" selection-end-line="4" />
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
+        <state relative-caret-position="105">
+          <caret line="7" column="30" selection-start-line="7" selection-start-column="30" selection-end-line="7" selection-end-column="30" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.wxss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="37" column="19" lean-forward="true" selection-start-line="37" selection-start-column="19" selection-end-line="37" selection-end-column="19" />
+        <state relative-caret-position="645">
+          <caret line="43" column="19" selection-start-line="43" selection-start-column="19" selection-end-line="43" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/components/eventDialog/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="945">
+          <caret line="63" selection-start-line="63" selection-end-line="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/pages/sumRecordResult/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="12" selection-start-line="12" selection-end-line="12" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="26" column="23" selection-start-line="26" selection-start-column="23" selection-end-line="26" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/pages/getOpenId/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="18" selection-start-line="18" selection-end-line="42" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/pages/sumRecord/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="405">
+          <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/util/util.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="245" column="32" lean-forward="true" selection-start-line="245" selection-start-column="32" selection-end-line="245" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/miniprogram/pages/index/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="277">
+          <caret line="330" column="36" lean-forward="true" selection-start-line="330" selection-start-column="36" selection-end-line="330" selection-end-column="36" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

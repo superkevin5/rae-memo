@@ -31,44 +31,52 @@ Component({
             });
         },
 
-        showDialogProps: function ( showDialogProps=false ) {
+        showDialogProps: function ( showDialogProps = false ) {
             this.setData({
                 showDialog: showDialogProps
             });
         }
     },
     methods: {
-        onCreateEventStartTime(e) {
+        onCreateEventStartTime( e ) {
             this.setData({
                 eventStartTime: e.detail
             });
         },
-        onCreateEventEndTime(e) {
+        onCreateEventEndTime( e ) {
             this.setData({
                 eventEndTime: e.detail
             });
         },
-        onCreateEventDetail(e){
+        onCreateEventDetail( e ) {
             this.setData({
                 eventDetail: e.detail
             });
         },
-        onSave(e) {
+        async onSave( e ) {
 
             const end = this.data.eventEndTime.split(':')
             const start = this.data.eventStartTime.split(':')
 
             const startDateObj = new Date(this.data.date)
-            startDateObj.setHours(start[0])
-            startDateObj.setMinutes(start[1])
-
-            console.log(startDateObj.toISOString())
+            startDateObj.setHours(start[ 0 ])
+            startDateObj.setMinutes(start[ 1 ])
 
             const endDateObj = new Date(this.data.date)
-            endDateObj.setHours(end[0])
-            endDateObj.setMinutes(end[1])
+            endDateObj.setHours(end[ 0 ])
+            endDateObj.setMinutes(end[ 1 ])
 
-            console.log(endDateObj.toISOString())
+            const db = wx.cloud.database()
+            await db.collection('memodb').add({
+
+                data: {
+                    startTime: startDateObj.toISOString(),
+                    endTime: endDateObj.toISOString(),
+                    description: this.data.eventDetail,
+                    isoStringDay: this.data.date.split('T')[0]
+                }
+
+            })
 
         }
     }

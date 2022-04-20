@@ -1,16 +1,11 @@
 var msToHMS = function msToHMS( ISOTimeString ) {
 
   var newDate = getDate(ISOTimeString);
-  //var newDate = getDate(newTime.getTime() - (offsetInMinutes * 60000));
-
-  //var date = getDate(timestamp);//时间戳为10位需*1000
-  //var newDate = getDate(date.getTime()+date.getTimezoneOffset()*60*1000)
-
   var Y = newDate.getFullYear() + '-';
   var M = (newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1) + '-';
   var D = newDate.getDate() + ' ';
   var h = newDate.getHours() + ':';
-  var m = newDate.getMinutes() + ' - ';
+  var m = newDate.getMinutes();
   var s = newDate.getSeconds();
   return h + m
 }
