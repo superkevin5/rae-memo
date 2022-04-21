@@ -292,8 +292,12 @@ function getCurrentDay(localDateString) {
     var year = d[2]
     var month = d[1]
     var day = d[0]
-    var date = new Date(year + '-' + month + '-' + day);
-    var day = date.getDay();
+
+    const dayT = new Date()
+    dayT.setFullYear(year)
+    dayT.setMonth(parseInt(month)-1)
+    dayT.setDate(day)
+    day = dayT.getDay();
     switch(day){
         case 0: return '周日';
         case 1: return '周一';
