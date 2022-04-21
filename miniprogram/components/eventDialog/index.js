@@ -54,7 +54,7 @@ Component({
                 eventDetail: e.detail
             });
         },
-        reloadPages:function() {
+        reloadPages: function () {
             this.triggerEvent("action")
         },
         async onSave( e ) {
@@ -62,14 +62,14 @@ Component({
             const end = this.data.eventEndTime.split(':')
             const start = this.data.eventStartTime.split(':')
 
-            const startDateObj = new Date(this.data.date)
+            const startDateObj = new Date(util.formatCurrentDay(this.data.date))
             startDateObj.setHours(start[ 0 ])
             startDateObj.setMinutes(start[ 1 ])
 
-            const endDateObj = new Date(this.data.date)
+            const endDateObj = new Date(util.formatCurrentDay(this.data.date))
             endDateObj.setHours(end[ 0 ])
             endDateObj.setMinutes(end[ 1 ])
-
+            const localDateArray = this.data.date.split('/')
             const db = wx.cloud.database()
             await db.collection('memodb').add({
 
@@ -77,7 +77,7 @@ Component({
                     startTime: startDateObj.toISOString(),
                     endTime: endDateObj.toISOString(),
                     description: this.data.eventDetail,
-                    isoStringDay: this.data.date.split('T')[0]
+                    localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
                 }
 
             })

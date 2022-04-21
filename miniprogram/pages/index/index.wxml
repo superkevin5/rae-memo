@@ -1,7 +1,9 @@
 <!--index.wxml-->
 <wxs module="filter" src="../../util/util.wxs"></wxs>
 <view class="container">
-  <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm" />
+  <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm"
+                min-date="{{ calendarMinDate}}"
+                max-date="{{ calendarMaxDate }}"/>
   <view class="title">
     <view class="title_choose_day">
     <van-button size="mini" plain type="info" bind:click="onDisplay">选择日期</van-button>
@@ -24,7 +26,7 @@
 
   <view class="time_block_container">
 
-    <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock">
+    <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock"  wx:if="{{ timeBlock.isShow }}">
       <view class="time_block_name">{{timeBlock.time}}</view>
       <view class="time_block_body">
         <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="id" wx:for-item="event">

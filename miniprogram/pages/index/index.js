@@ -6,9 +6,11 @@ const util = require('../../util/util.js')
 
 Page({
     data: {
-        date: new Date().toISOString(),
+        date: new Date().toLocaleDateString(),
         showCalendar: false,
         showDialog: false,
+        calendarMinDate: new Date(2020, 0, 1).getTime(),
+        calendarMaxDate: new Date(2025, 0, 1).getTime(),
         timeBlocks: util.getPageTimeBlocks(),
         // timeBlocks:[
         //     {
@@ -269,13 +271,16 @@ Page({
         selectedEnv: envList[ 0 ],
         haveCreateCollection: false
     },
-    onLoad(options) {
+    onLoad( options ) {
         this.loadPages(util.getPageTimeBlocks())
     },
     reloadPages() {
         this.loadPages(util.getPageTimeBlocks())
     },
-    async loadPages(timeBlocks){
+    async loadPages( timeBlocks ) {
+        wx.showLoading({
+            title: 'loading',
+        });
         const openId = wx.getStorageSync('openId')
         const d = await wx.cloud.callFunction({
             name: 'quickstartFunctions',
@@ -289,20 +294,22 @@ Page({
 
         try {
             wx.setStorageSync('openId', d.result.openid)
-        } catch (e) { }
+        } catch (e) {
+        }
 
-        const currentIsoStringDay = this.data.date.split('T')[0]
+
+        const currentLocalDate = this.data.date
+        const localDateArray = currentLocalDate.split('/')
         const db = wx.cloud.database()
-        db.collection('memodb').where({
+        const res = await db.collection('memodb').where({
             _openid: openId,
-            isoStringDay: currentIsoStringDay
-        }).get({
-            success: res => {
-                const data = res.data
-                const newTimeBlocks = util.formatTimeBlocktResponse(data, timeBlocks)
-                this.setData({ timeBlocks: newTimeBlocks });
-            }
-        })
+            localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
+        }).get()
+        const data = res.data
+        const newTimeBlocks = util.formatTimeBlocktResponse(data, timeBlocks)
+        this.setData({ timeBlocks: newTimeBlocks });
+        wx.hideLoading();
+
     },
 
     onDisplay() {
@@ -314,36 +321,44 @@ Page({
     onCloseDialog() {
         this.setData({ showDialog: false });
     },
-    formatDate(date) {
+    formatDate( date ) {
         date = new Date(date);
         return date.toISOString()
     },
-    preDay(){
-
-        const currentDate = Date.parse( this.data.date)
-        const preDay = new Date(currentDate);
-        preDay.setDate(preDay.getDate() - 1);
-        this.setData({
-            date: this.formatDate(preDay),
-        });
-        this.loadPages(util.getPageTimeBlocks())
-    },
-    nextDay() {
-        const currentDate = Date.parse( this.data.date)
-        const nextDay = new Date(currentDate);
-        nextDay.setDate(nextDay.getDate() + 1);
-        this.setData({
-            date: this.formatDate(nextDay),
-        });
-        this.loadPages(util.getPageTimeBlocks())
-    },
-    onConfirm(event) {
+    onConfirm( event ) {
         this.setData({
             showCalendar: false,
-            date: this.formatDate(event.detail),
+            date: event.detail.toLocaleDateString(),
+        }, () => {
+            this.loadPages(util.getPageTimeBlocks())
         });
     },
-    createEvent(date) {
+    preDay() {
+
+        const currentDate = this.data.date
+        const preDay = new Date(util.formatCurrentDay(currentDate));
+        preDay.setDate(preDay.getDate() - 1);
+        this.setData({
+            date: preDay.toLocaleDateString(),
+            timeBlocks: util.getPageTimeBlocks()
+        }, () => {
+            this.loadPages(util.getPageTimeBlocks())
+        });
+
+    },
+    nextDay() {
+        const currentDate = this.data.date
+        const nextDay = new Date(util.formatCurrentDay(currentDate));
+        nextDay.setDate(nextDay.getDate() + 1);
+        this.setData({
+            date: nextDay.toLocaleDateString(),
+            timeBlocks: util.getPageTimeBlocks()
+        }, () => {
+            this.loadPages(util.getPageTimeBlocks())
+        });
+
+    },
+    createEvent( date ) {
         this.setData({
             showDialog: true
         })
