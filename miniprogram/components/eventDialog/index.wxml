@@ -1,5 +1,4 @@
 <wxs module="filter" src="../../util/util.wxs"></wxs>
-
 <van-dialog
         class="eventDialog"
         use-slot

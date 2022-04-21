@@ -1,5 +1,6 @@
 <!--index.wxml-->
 <wxs module="filter" src="../../util/util.wxs"></wxs>
+
 <view class="container">
   <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm"
                 min-date="{{ calendarMinDate}}"
@@ -22,8 +23,6 @@
 
     </view>
   </view>
-
-
   <view class="time_block_container">
 
     <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock"  wx:if="{{ timeBlock.isShow }}">

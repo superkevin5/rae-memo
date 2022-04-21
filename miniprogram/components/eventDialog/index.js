@@ -62,11 +62,23 @@ Component({
             const end = this.data.eventEndTime.split(':')
             const start = this.data.eventStartTime.split(':')
 
-            const startDateObj = new Date(util.formatCurrentDay(this.data.date))
+            const currentDate = this.data.date
+            const d = currentDate.split('/')
+            var day = new Date()
+            day.setFullYear(d[2])
+            day.setMonth(d[1]-1)
+            day.setDate(d[0])
+
+            const startDateObj = day
             startDateObj.setHours(start[ 0 ])
             startDateObj.setMinutes(start[ 1 ])
 
-            const endDateObj = new Date(util.formatCurrentDay(this.data.date))
+            var day = new Date()
+            day.setFullYear(d[2])
+            day.setMonth(d[1]-1)
+            day.setDate(d[0])
+
+            const endDateObj = day
             endDateObj.setHours(end[ 0 ])
             endDateObj.setMinutes(end[ 1 ])
             const localDateArray = this.data.date.split('/')

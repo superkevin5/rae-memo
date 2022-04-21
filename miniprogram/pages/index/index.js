@@ -336,7 +336,12 @@ Page({
     preDay() {
 
         const currentDate = this.data.date
-        const preDay = new Date(util.formatCurrentDay(currentDate));
+        const d = currentDate.split('/')
+        const day = new Date()
+        day.setFullYear(d[2])
+        day.setMonth(d[1]-1)
+        day.setDate(d[0])
+        const preDay = day
         preDay.setDate(preDay.getDate() - 1);
         this.setData({
             date: preDay.toLocaleDateString(),
@@ -348,10 +353,18 @@ Page({
     },
     nextDay() {
         const currentDate = this.data.date
-        const nextDay = new Date(util.formatCurrentDay(currentDate));
+        const d = currentDate.split('/')
+        const day = new Date()
+        day.setFullYear(d[2])
+        day.setMonth(d[1]-1)
+        day.setDate(d[0])
+        const nextDay = day
         nextDay.setDate(nextDay.getDate() + 1);
         this.setData({
             date: nextDay.toLocaleDateString(),
+            test: nextDay,
+            test2: util.formatCurrentDay(currentDate),
+            test3: this.data.date,
             timeBlocks: util.getPageTimeBlocks()
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
