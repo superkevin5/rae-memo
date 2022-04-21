@@ -137,7 +137,6 @@ Page({
         const data = res.data
         const data2 = res2.data
         const newTimeBlocks = util.formatTimeBlocktResponse([...data,...data2], timeBlocks)
-        console.log('newTimeBlocks', newTimeBlocks)
         this.setData({ timeBlocks: newTimeBlocks });
         wx.hideLoading();
 

@@ -75,10 +75,10 @@ Component({
             day.setFullYear(d[2])
             day.setMonth(d[1]-1)
             day.setDate(d[0])
-
             const startDateObj = day
-            startDateObj.setHours(start[ 0 ])
-            startDateObj.setMinutes(start[ 1 ])
+
+            startDateObj.setHours(parseInt(start[ 0 ],10))
+            startDateObj.setMinutes(parseInt(start[ 1 ],10))
 
             var day = new Date()
             day.setFullYear(d[2])
@@ -86,8 +86,8 @@ Component({
             day.setDate(d[0])
 
             const endDateObj = day
-            endDateObj.setHours(end[ 0 ])
-            endDateObj.setMinutes(end[ 1 ])
+            endDateObj.setHours(parseInt(end[ 0 ],10))
+            endDateObj.setMinutes(parseInt(end[ 1 ],10))
             const localDateArray = this.data.date.split('/')
             const db = wx.cloud.database()
             await db.collection('memodb').add({

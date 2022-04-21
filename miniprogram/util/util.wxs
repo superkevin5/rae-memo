@@ -4,10 +4,17 @@ var msToHMS = function msToHMS( ISOTimeString ) {
   var Y = newDate.getFullYear() + '-';
   var M = (newDate.getMonth() + 1 < 10 ? '0' + (newDate.getMonth() + 1) : newDate.getMonth() + 1) + '-';
   var D = newDate.getDate() + ' ';
-  var h = newDate.getHours() + ':';
+  var h = newDate.getHours()
   var m = newDate.getMinutes();
   var s = newDate.getSeconds();
-  return h + m
+  if(parseInt(h) < 10) {
+    h = '0'+h
+  }
+    if(parseInt(m) < 10) {
+      m = '0'+m
+    }
+
+  return h + ':' + m
 }
 
 

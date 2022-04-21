@@ -204,31 +204,31 @@ function formatTimeBlocktResponse( data = [], timeBlocks ) {
         if (!startTime) return
         const startHour = msToHMS(d.startTime).split(':')[ 0 ]
         switch (startHour) {
-            case '01':
+            case '1':
                 timeBlocks[ 0 ].events.push(d);
                 break;
-            case '02':
+            case '2':
                 timeBlocks[ 1 ].events.push(d);
                 break;
-            case '03':
+            case '3':
                 timeBlocks[ 2 ].events.push(d);
                 break;
-            case '04':
+            case '4':
                 timeBlocks[ 3 ].events.push(d);
                 break;
-            case '05':
+            case '5':
                 timeBlocks[ 4 ].events.push(d);
                 break;
-            case '06':
+            case '6':
                 timeBlocks[ 5 ].events.push(d);
                 break;
-            case '07':
+            case '7':
                 timeBlocks[ 6 ].events.push(d);
                 break;
-            case '08':
+            case '8':
                 timeBlocks[ 7 ].events.push(d);
                 break;
-            case '09':
+            case '9':
                 timeBlocks[ 8 ].events.push(d);
                 break;
             case '10':
