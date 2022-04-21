@@ -306,8 +306,18 @@ Page({
             _openid: openId,
             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
         }).get()
+        let res2 = {'data': []}
+        if(res.data.length === 20) {
+            res2 = await db.collection('memodb').where({
+                _openid: openId,
+                localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
+            }).skip(20).get()
+        }
+
         const data = res.data
-        const newTimeBlocks = util.formatTimeBlocktResponse(data, timeBlocks)
+        const data2 = res2.data
+        const newTimeBlocks = util.formatTimeBlocktResponse([...data,...data2], timeBlocks)
+        console.log('newTimeBlocks', newTimeBlocks)
         this.setData({ timeBlocks: newTimeBlocks });
         wx.hideLoading();
 
