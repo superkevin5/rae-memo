@@ -38,4 +38,4 @@
 
 </view>
 <!--<van-dialog id="van-dialog" />-->
-<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}"></event-dialog>
+<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" bind:action="reloadPages"></event-dialog>

@@ -22,7 +22,8 @@ Component({
     },
     properties: {
         showDialogProps: Boolean,
-        dateProps: String
+        dateProps: String,
+        reloadProps: Object
     },
     observers: {
         dateProps: function ( dateProps ) {
@@ -53,6 +54,9 @@ Component({
                 eventDetail: e.detail
             });
         },
+        reloadPages:function() {
+            this.triggerEvent("action")
+        },
         async onSave( e ) {
 
             const end = this.data.eventEndTime.split(':')
@@ -77,6 +81,7 @@ Component({
                 }
 
             })
+            this.reloadPages()
 
         }
     }

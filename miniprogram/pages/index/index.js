@@ -270,28 +270,26 @@ Page({
         haveCreateCollection: false
     },
     onLoad(options) {
-      this.loadPages(this.data.timeBlocks)
+        this.loadPages(util.getPageTimeBlocks())
     },
-    loadPages(timeBlocks){
+    reloadPages() {
+        this.loadPages(util.getPageTimeBlocks())
+    },
+    async loadPages(timeBlocks){
         const openId = wx.getStorageSync('openId')
-        if(!openId) {
-            wx.cloud.callFunction({
-                name: 'quickstartFunctions',
-                config: {
-                    env: 'cloud1-4ggrpycl7d92f793'
-                },
-                data: {
-                    type: 'getOpenId'
-                }
-            }).then((resp) => {
-                try {
-                    wx.setStorageSync('openId', resp.result.openid)
-                } catch (e) { }
+        const d = await wx.cloud.callFunction({
+            name: 'quickstartFunctions',
+            config: {
+                env: 'cloud1-4ggrpycl7d92f793'
+            },
+            data: {
+                type: 'getOpenId'
+            }
+        })
 
-            }).catch((e) => {
-                console.log(e)
-            });
-        }
+        try {
+            wx.setStorageSync('openId', d.result.openid)
+        } catch (e) { }
 
         const currentIsoStringDay = this.data.date.split('T')[0]
         const db = wx.cloud.database()
