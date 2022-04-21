@@ -6,8 +6,8 @@ const util = require('../../util/util.js')
 
 Page({
     data: {
-        date: new Date().toLocaleDateString(),
-        currentDay: util.getCurrentDay(new Date().toLocaleDateString()),
+        date: new Date().toLocaleDateString('en-GB'),
+        currentDay: util.getCurrentDay(new Date().toLocaleDateString('en-GB')),
         showCalendar: false,
         showDialog: false,
         calendarMinDate: new Date(2020, 0, 1).getTime(),
@@ -329,7 +329,7 @@ Page({
     onConfirm( event ) {
         this.setData({
             showCalendar: false,
-            date: event.detail.toLocaleDateString(),
+            date: event.detail.toLocaleDateString('en-GB'),
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
         });
@@ -345,8 +345,8 @@ Page({
         const preDay = day
         preDay.setDate(preDay.getDate() - 1);
         this.setData({
-            date: preDay.toLocaleDateString(),
-            currentDay: util.getCurrentDay(preDay.toLocaleDateString()),
+            date: preDay.toLocaleDateString('en-GB'),
+            currentDay: util.getCurrentDay(preDay.toLocaleDateString('en-GB')),
             timeBlocks: util.getPageTimeBlocks()
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
@@ -363,8 +363,8 @@ Page({
         const nextDay = day
         nextDay.setDate(nextDay.getDate() + 1);
         this.setData({
-            date: nextDay.toLocaleDateString(),
-            currentDay: util.getCurrentDay(nextDay.toLocaleDateString()),
+            date: nextDay.toLocaleDateString('en-GB'),
+            currentDay: util.getCurrentDay(nextDay.toLocaleDateString('en-GB')),
             timeBlocks: util.getPageTimeBlocks()
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
