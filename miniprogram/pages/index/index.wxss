@@ -30,13 +30,15 @@ page {
 .time_block {
   display: flex;
   justify-content: flex-start;
-  height:180px;
+  min-height:70px;
   padding:0rpx 0rpx 0rpx 20rpx;
 
 }
 
 .time_block_event {
   font-size: 30rpx;
+  border-top: solid 1px;
+  padding: 10rpx;
 }
 
 .time_block_name {

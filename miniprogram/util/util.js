@@ -42,7 +42,7 @@ const initTimeBlocks = [
         id: 7,
         time: '07:00',
         events: [],
-        isShow: true,
+        isShow: false,
     },
     {
         id: 8,
@@ -129,13 +129,13 @@ const initTimeBlocks = [
         id: 18,
         time: '18:00',
         events: [],
-        isShow: true
+        isShow: false
     },
     {
         id: 19,
         time: '19:00',
         events: [],
-        isShow: true
+        isShow: false
     },
     {
         id: 20,
