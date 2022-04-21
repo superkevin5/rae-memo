@@ -14,21 +14,12 @@
   <view>
     <van-datetime-picker
             type="time"
+            min-hour="8"
+            max-hour="18"
             value="{{eventStartTime}}"
             visible-item-count="2"
             bind:input="onCreateEventStartTime"
             title="开始时间"
-            cancel-button-text=""
-            confirm-button-text=""
-    />
-  </view>
-  <view>
-    <van-datetime-picker
-            type="time"
-            value="{{eventEndTime}}"
-            visible-item-count="2"
-            bind:input="onCreateEventEndTime"
-            title="结束时间"
             cancel-button-text=""
             confirm-button-text=""
     />
