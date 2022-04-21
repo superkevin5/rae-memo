@@ -35,10 +35,19 @@ page {
 
 }
 
-.time_block_event {
+.time_block_event  {
   font-size: 30rpx;
-  border-top: solid 1px;
-  padding: 10rpx;
+  margin-bottom: 20rpx;
+}
+
+.time_block_event_button wx-button{
+  display: flex;
+  justify-content: flex-start;
+  height: 100%;
+}
+.time_block_event_button wx-button wx-view{
+  text-align: left;
+  min-height: 50px;
 }
 
 .time_block_name {

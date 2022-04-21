@@ -2,41 +2,55 @@
 <wxs module="filter" src="../../util/util.wxs"></wxs>
 
 <view class="container">
-  <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm"
-                min-date="{{ calendarMinDate}}"
-                max-date="{{ calendarMaxDate }}"/>
-  <view class="title">
-    <view class="title_choose_day">
-    <van-button size="mini" plain type="info" bind:click="onDisplay">选择日期</van-button>
-      <van-button size="mini" plain type="info" bind:click="createEvent">创建预约</van-button>
+    <van-calendar show="{{ showCalendar }}" bind:close="onClose" bind:confirm="onConfirm"
+                  min-date="{{ calendarMinDate}}"
+                  max-date="{{ calendarMaxDate }}"/>
+    <view class="title">
+        <view class="title_choose_day">
+            <van-button size="mini" plain type="info" bind:click="onDisplay">选择日期</van-button>
+            <van-button size="mini" plain type="info" bind:click="createEvent">创建预约</van-button>
 
-    </view>
-    <view class="day">{{filter.getCurrentDate(date)}} {{currentDay}}</view>
-
-    <view class="arrows">
-      <van-button size="mini" plain type="info" bind:click="preDay">
-        <i class="arrow left"></i>
-      </van-button>
-      <van-button size="mini" plain type="info" bindtap="nextDay">
-        <i class="arrow right"></i>
-      </van-button>
-
-    </view>
-  </view>
-  <view class="time_block_container">
-
-    <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock"  wx:if="{{ timeBlock.isShow }}">
-      <view class="time_block_name">{{timeBlock.time}}</view>
-      <view class="time_block_body">
-        <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="id" wx:for-item="event">
-          <view >({{index+1}}) {{filter.msToHMS(event.startTime)}} : {{event.description}}</view>
         </view>
+        <view class="day">{{filter.getCurrentDate(date)}} {{currentDay}}</view>
 
+        <view class="arrows">
+            <van-button size="mini" plain type="info" bind:click="preDay">
+                <i class="arrow left"></i>
+            </van-button>
+            <van-button size="mini" plain type="info" bindtap="nextDay">
+                <i class="arrow right"></i>
+            </van-button>
 
         </view>
     </view>
-  </view>
+    <view class="time_block_container">
+
+        <view class="time_block" wx:for="{{timeBlocks}}" wx:key="id" wx:for-item="timeBlock"
+              wx:if="{{ timeBlock.isShow }}">
+            <view class="time_block_name">{{timeBlock.time}}</view>
+            <view class="time_block_body">
+                <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="id" wx:for-item="event"
+                      bindlongpress='longPressEvent' data-event-id="{{event._id}}">
+                    <van-button type="default" size="large" class="time_block_event_button">
+                        {{filter.msToHMS(event.startTime)}} : {{event.description}}
+                    </van-button>
+
+                </view>
+            </view>
+        </view>
+    </view>
 
 </view>
 <!--<van-dialog id="van-dialog" />-->
-<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" currentDayProps="{{currentDay}}" bind:action="reloadPages"></event-dialog>
+<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" currentDayProps="{{currentDay}}"
+              bind:action="reloadPages"></event-dialog>
+<van-popup position="bottom"
+           close-icon="close"
+           closeable="true"
+           custom-style="height: 20%;"
+           show="{{ showUpdateEvent }}" bind:close="onCloseUpdateEvent">
+
+    <van-button type="default" size="large">修改预约</van-button>
+    <van-button type="danger" size="large">删除预约</van-button>
+
+</van-popup>
