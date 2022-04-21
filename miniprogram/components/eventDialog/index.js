@@ -16,6 +16,7 @@ Component({
     data: {
         showDialog: false,
         date: '',
+        currentDayProps: '',
         eventDetail: '',
         eventEndTime: util.getCurrentHAndM(),
         eventStartTime: util.getCurrentHAndM()
@@ -23,12 +24,18 @@ Component({
     properties: {
         showDialogProps: Boolean,
         dateProps: String,
-        reloadProps: Object
+        reloadProps: Object,
+        currentDayProps: String
     },
     observers: {
         dateProps: function ( dateProps ) {
             this.setData({
                 date: dateProps
+            });
+        },
+        currentDayProps: function ( currentDayProps ) {
+            this.setData({
+                currentDay: currentDayProps
             });
         },
 

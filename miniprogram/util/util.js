@@ -287,12 +287,33 @@ function formatCurrentDay(localDateString) {
     return d[2] + '-' + d[1] + '-' + d[0];
 }
 
+function getCurrentDay(localDateString) {
+    var d = localDateString.split('/')
+    var year = d[2]
+    var month = d[1]
+    var day = d[0]
+    var date = new Date(year + '-' + month + '-' + day);
+    var day = date.getDay();
+    switch(day){
+        case 0: return '周日';
+        case 1: return '周一';
+        case 2: return '周二';
+        case 3: return '周三';
+        case 4: return '周四';
+        case 5: return '周五';
+        case 6: return '周六';
+    }
+}
+
+
+
 module.exports = {
     msToHMS: msToHMS,
     getPageTimeBlocks: getPageTimeBlocks,
     getCurrentHAndM: getCurrentHAndM,
     formatTimeBlocktResponse: formatTimeBlocktResponse,
-    formatCurrentDay: formatCurrentDay
+    formatCurrentDay: formatCurrentDay,
+    getCurrentDay: getCurrentDay
 }
 
 

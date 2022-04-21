@@ -2,7 +2,7 @@
 <van-dialog
         class="eventDialog"
         use-slot
-        title="{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}}"
+        title="{{filter.getCurrentDate(date)}} {{currentDay}}"
         show="{{ showDialog }}"
         show-cancel-button
         showConfirmButton="true"

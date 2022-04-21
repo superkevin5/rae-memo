@@ -11,7 +11,7 @@
       <van-button size="mini" plain type="info" bind:click="createEvent">创建预约</van-button>
 
     </view>
-    <view class="day">{{filter.getCurrentDate(date)}} {{filter.getCurrentDay(date)}}</view>
+    <view class="day">{{filter.getCurrentDate(date)}} {{currentDay}}</view>
 
     <view class="arrows">
       <van-button size="mini" plain type="info" bind:click="preDay">
@@ -39,4 +39,4 @@
 
 </view>
 <!--<van-dialog id="van-dialog" />-->
-<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" bind:action="reloadPages"></event-dialog>
+<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" currentDayProps="{{currentDay}}" bind:action="reloadPages"></event-dialog>

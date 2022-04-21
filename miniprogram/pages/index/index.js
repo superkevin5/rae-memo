@@ -7,6 +7,7 @@ const util = require('../../util/util.js')
 Page({
     data: {
         date: new Date().toLocaleDateString(),
+        currentDay: util.getCurrentDay(new Date().toLocaleDateString()),
         showCalendar: false,
         showDialog: false,
         calendarMinDate: new Date(2020, 0, 1).getTime(),
@@ -345,6 +346,7 @@ Page({
         preDay.setDate(preDay.getDate() - 1);
         this.setData({
             date: preDay.toLocaleDateString(),
+            currentDay: util.getCurrentDay(preDay.toLocaleDateString()),
             timeBlocks: util.getPageTimeBlocks()
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
@@ -362,9 +364,7 @@ Page({
         nextDay.setDate(nextDay.getDate() + 1);
         this.setData({
             date: nextDay.toLocaleDateString(),
-            test: nextDay,
-            test2: util.formatCurrentDay(currentDate),
-            test3: this.data.date,
+            currentDay: util.getCurrentDay(nextDay.toLocaleDateString()),
             timeBlocks: util.getPageTimeBlocks()
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
