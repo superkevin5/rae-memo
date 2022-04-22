@@ -24,9 +24,8 @@
             confirm-button-text=""
     />
   </view>
-  <view>
+  <view class="van-filed-ss">
       <van-field
-              class="van-filed-ss"
               value="{{ message }}"
               label=""
               type="textarea"

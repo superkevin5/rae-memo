@@ -55,6 +55,7 @@ page {
 
 .time_block_name {
   border-top: solid 1px;
+  border-color: lightgrey;
   font-size: 30rpx;
   width: 12%;
 }
@@ -63,6 +64,7 @@ page {
   width: 88%;
   border-top: solid 1px;
   border-left: solid 1px;
+  border-color: lightgrey;
   overflow: hidden;
 }
 

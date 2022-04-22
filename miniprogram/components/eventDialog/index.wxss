@@ -1,0 +1,7 @@
+
+.van-filed-ss{
+    border-top: solid 1px;
+    border-color: lightgrey;
+    padding: 2rpx;
+
+}
