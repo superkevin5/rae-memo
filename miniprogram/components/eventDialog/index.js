@@ -2,6 +2,8 @@
 const { isMac } = require('../../envList.js');
 const util = require('../../util/util.js')
 
+import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
+
 Component({
     attached: function () {
         // this.setData({
@@ -100,7 +102,13 @@ Component({
                 }
 
             })
-            this.reloadPages()
+            Toast({
+                type: 'success',
+                message: '保存成功',
+                onClose: () => {
+                    this.reloadPages()
+                },
+            });
 
         }
     }

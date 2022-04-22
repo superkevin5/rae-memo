@@ -1,5 +1,7 @@
 // index.js
 // const app = getApp()
+import Toast from "../../miniprogram_npm/@vant/weapp/toast/toast";
+
 const { envList } = require('../../envList.js');
 const util = require('../../util/util.js')
 
@@ -126,8 +128,8 @@ Page({
             _openid: openId,
             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
         }).get()
-        let res2 = {'data': []}
-        if(res.data.length === 20) {
+        let res2 = { 'data': [] }
+        if (res.data.length === 20) {
             res2 = await db.collection('memodb').where({
                 _openid: openId,
                 localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
@@ -136,7 +138,7 @@ Page({
 
         const data = res.data
         const data2 = res2.data
-        const newTimeBlocks = util.formatTimeBlocktResponse([...data,...data2], timeBlocks)
+        const newTimeBlocks = util.formatTimeBlocktResponse([ ...data, ...data2 ], timeBlocks)
         this.setData({ timeBlocks: newTimeBlocks });
         wx.hideLoading();
 
@@ -168,9 +170,9 @@ Page({
         const currentDate = this.data.date
         const d = currentDate.split('/')
         const day = new Date()
-        day.setFullYear(d[2])
-        day.setMonth(d[1]-1)
-        day.setDate(d[0])
+        day.setFullYear(d[ 2 ])
+        day.setMonth(d[ 1 ] - 1)
+        day.setDate(d[ 0 ])
         const preDay = day
         preDay.setDate(preDay.getDate() - 1);
         this.setData({
@@ -186,9 +188,9 @@ Page({
         const currentDate = this.data.date
         const d = currentDate.split('/')
         const day = new Date()
-        day.setFullYear(d[2])
-        day.setMonth(d[1]-1)
-        day.setDate(d[0])
+        day.setFullYear(d[ 2 ])
+        day.setMonth(d[ 1 ] - 1)
+        day.setDate(d[ 0 ])
         const nextDay = day
         nextDay.setDate(nextDay.getDate() + 1);
         this.setData({
@@ -205,12 +207,37 @@ Page({
             showDialog: true
         })
     },
+    async removeEvent() {
+        const db = wx.cloud.database()
+        await db.collection('memodb').where({
+            _id: this.data.eventIdInUpdating
+        })
+            .update({
+                data: {
+                    isDeleted: true
+                },
+            });
+        Toast({
+            type: 'success',
+            message: '预约删除',
+            onClose: () => {
+                this.setData({
+                    showUpdateEvent: false,
+                    eventIdInUpdating: null
+                }, () => {
+                    this.reloadPages()
+                })
+            },
+        });
+
+    },
     onCloseUpdateEvent() {
         this.setData({
-            showUpdateEvent: false
+            showUpdateEvent: false,
+            eventIdInUpdating: null
         })
     },
-    longPressEvent(e) {
+    longPressEvent( e ) {
         if (e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.eventId) {
             this.setData({
                 showUpdateEvent: true,

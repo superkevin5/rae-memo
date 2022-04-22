@@ -45,6 +45,9 @@ page {
   justify-content: flex-start;
   height: 100%;
 }
+.event_deleted {
+  text-decoration: line-through;
+}
 .time_block_event_button wx-button wx-view{
   text-align: left;
   min-height: 50px;

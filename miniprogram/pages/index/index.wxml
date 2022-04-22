@@ -31,8 +31,8 @@
             <view class="time_block_body">
                 <view class="time_block_event" wx:for="{{timeBlock.events}}" wx:key="id" wx:for-item="event"
                       bindlongpress='longPressEvent' data-event-id="{{event._id}}">
-                    <van-button type="default" size="large" class="time_block_event_button">
-                        {{filter.msToHMS(event.startTime)}} : {{event.description}}
+                    <van-button type="default" size="large" class="time_block_event_button {{event.isDeleted?'event_deleted':''}}" >
+                       {{filter.msToHMS(event.startTime)}} : {{event.description}}
                     </van-button>
 
                 </view>
@@ -51,6 +51,7 @@
            show="{{ showUpdateEvent }}" bind:close="onCloseUpdateEvent">
 
     <van-button type="default" size="large">修改预约</van-button>
-    <van-button type="danger" size="large">删除预约</van-button>
+    <van-button type="danger" size="large" bind:click="removeEvent">删除预约</van-button>
 
 </van-popup>
+<van-toast id="van-toast" />
