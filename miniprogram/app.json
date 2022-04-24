@@ -18,7 +18,7 @@
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#F6F6F6",
-    "navigationBarTitleText": "云memo",
+    "navigationBarTitleText": "运memo",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json",
