@@ -5,3 +5,7 @@
     padding: 2rpx;
 
 }
+
+.dialog-text-area {
+    padding: 2rpx;
+}

@@ -1,0 +1,25 @@
+.van-swipe-cell__right{
+  height:100%;
+}
+
+.van-swipe-cell__right wx-button{
+  height:100%;
+}
+
+.myId, .myTeam {
+  margin: 40rpx 0rpx;
+}
+.myId .myCopyBtn{
+  margin: 30rpx 0rpx;
+}
+
+.myId .myOpen {
+  padding: 5px;
+  font-weight: bold;
+}
+
+
+.myTeamCount {
+  padding: 5px;
+  font-weight: bold;
+}

@@ -11,7 +11,8 @@
     "pages/updateRecordResult/index",
     "pages/updateRecordSuccess/index",
     "pages/sumRecord/index",
-    "pages/sumRecordResult/index"
+    "pages/sumRecordResult/index",
+    "pages/userManagement/index"
   ],
   "window": {
     "backgroundColor": "#F6F6F6",
@@ -30,6 +31,28 @@
     "van-datetime-picker": "@vant/weapp/datetime-picker/index",
     "van-field": "@vant/weapp/field/index",
     "van-popup": "@vant/weapp/popup/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
+    "van-tag": "@vant/weapp/tag/index"
+  },
+  "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#3cc51f",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/home.png",
+        "selectedIconPath": "images/home.png",
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/userManagement/index",
+        "iconPath": "images/team.png",
+        "selectedIconPath": "images/team.png",
+        "text": "小组管理"
+      }
+    ]
   }
 }

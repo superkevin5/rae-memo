@@ -1,0 +1,51 @@
+<view>
+  <view class="myId">
+
+    <view  class="myOpen" >我的ID <van-tag plain type="primary"  size="large"> {{openId}}</van-tag></view>
+    <view  class="myCopyBtn" ><van-button type="info" size="large"  bind:click="copyText">复制ID</van-button></view>
+  </view>
+
+  <van-button  wx:if="{{ !hasTeam}}" type="info" size="large"  bind:click="createTeam">创建小组</van-button>
+
+  <view wx:if="{{hasTeam}}" class="myTeam">
+    <view class="myTeamCount">我的组员: 组员个数{{myTeams.length}}</view>
+
+    <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 0 }}" wx:for="{{myTeams}}" wx:for-item="member">
+
+      <van-cell-group>
+        <van-cell title="{{member}}" value="组员" />
+      </van-cell-group>
+
+      <view slot="right" class="van-swipe-cell__right" data-name="{{member}}" bindtap="removeMember">
+
+
+        <van-button plain type="danger" size="small"> 删除</van-button>
+      </view>
+
+    </van-swipe-cell>
+
+
+  </view>
+
+
+  <van-button  wx:if="{{ hasTeam && !addingTeam}}" type="info" size="large"  bind:click="addTeam">添加组员</van-button>
+
+  <van-cell-group wx:if="{{ addingTeam}}">
+    <van-field
+            value="{{ sms }}"
+            center
+            clearable
+            label="成员ID"
+            placeholder="请输入成员ID"
+            border="{{ false }}"
+            use-button-slot
+            bind:change="onCreateNewMember"
+
+    >
+      <van-button slot="button" size="mini"  type="info"  bind:click="saveNewTeamMember">
+        添加
+      </van-button>
+    </van-field>
+  </van-cell-group>
+</view>
+<van-toast id="van-toast" />

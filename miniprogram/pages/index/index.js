@@ -104,20 +104,23 @@ Page({
         wx.showLoading({
             title: 'loading',
         });
-        const openId = wx.getStorageSync('openId')
-        const d = await wx.cloud.callFunction({
-            name: 'quickstartFunctions',
-            config: {
-                env: 'cloud1-4ggrpycl7d92f793'
-            },
-            data: {
-                type: 'getOpenId'
-            }
-        })
+        let openId = wx.getStorageSync('openId')
+        if (!openId) {
+            const d = await wx.cloud.callFunction({
+                name: 'quickstartFunctions',
+                config: {
+                    env: 'cloud1-4ggrpycl7d92f793'
+                },
+                data: {
+                    type: 'getOpenId'
+                }
+            })
 
-        try {
-            wx.setStorageSync('openId', d.result.openid)
-        } catch (e) {
+            try {
+                wx.setStorageSync('openId', d.result.openid)
+                openId = wx.getStorageSync('openId')
+            } catch (e) {
+            }
         }
 
 
@@ -236,6 +239,11 @@ Page({
             showUpdateEvent: false,
             eventIdInUpdating: null
         })
+    },
+    goToMyTeam() {
+        wx.navigateTo({
+            url: `/pages/userManagement/index`,
+        });
     },
     longPressEvent( e ) {
         if (e && e.currentTarget && e.currentTarget.dataset && e.currentTarget.dataset.eventId) {

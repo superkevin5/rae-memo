@@ -179,6 +179,28 @@ function getPageTimeBlocks(  ) {
 }
 
 
+async function getOpenId() {
+    let openId = wx.getStorageSync('openId')
+    if (!openId) {
+        const d = await wx.cloud.callFunction({
+            name: 'quickstartFunctions',
+            config: {
+                env: 'cloud1-4ggrpycl7d92f793'
+            },
+            data: {
+                type: 'getOpenId'
+            }
+        })
+
+        try {
+            wx.setStorageSync('openId', d.result.openid)
+            openId = wx.getStorageSync('openId')
+        } catch (e) {
+        }
+    }
+    return openId
+}
+
 function getCurrentHAndM() {
     const currentDate = new Date()
     const h = currentDate.getHours()
@@ -317,7 +339,8 @@ module.exports = {
     getCurrentHAndM: getCurrentHAndM,
     formatTimeBlocktResponse: formatTimeBlocktResponse,
     formatCurrentDay: formatCurrentDay,
-    getCurrentDay: getCurrentDay
+    getCurrentDay: getCurrentDay,
+    getOpenId: getOpenId
 }
 
 
