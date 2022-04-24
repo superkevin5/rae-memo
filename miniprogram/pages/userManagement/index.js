@@ -52,16 +52,15 @@ Page({
         }
 
 
-
         wx.hideLoading()
 
     },
     async createTeam() {
         let openId = await util.getOpenId()
-        const myLeaderOpenId = (await util.getMyLeader(openId))
+        const myLeaderOpenId = ( await util.getMyLeader(openId) )
 
 
-        if(myLeaderOpenId && myLeaderOpenId !== openId) {
+        if (myLeaderOpenId && myLeaderOpenId !== openId) {
             Toast({
                 type: 'success',
                 message: '你已经被加入其它小组， 不能创建小组',
@@ -114,7 +113,7 @@ Page({
             newMemberId: e.detail
         });
     },
-    removeMember: async function(e) {
+    removeMember: async function ( e ) {
         const member = e.currentTarget.dataset.name.trim()
 
         const db = wx.cloud.database()
@@ -128,7 +127,7 @@ Page({
         wx.showModal({
             title: '',
             content: '确认删除？',
-            async success (res){
+            async success( res ) {
                 if (res.confirm) {
                     await db.collection('team').where({
                         _id: t.data.myTeamId
@@ -170,30 +169,37 @@ Page({
         })
 
 
-
     },
 
-     deleteMyTeam: async function() {
+    deleteMyTeam: async function () {
         const t = this
-        wx.showModal({
-            title: '',
-            content: '确认删除？',
-            async success( res ) {
-                if (res.confirm) {
-                    const db = wx.cloud.database()
-                    await db.collection('team').where({
-                        _id: t.data.myTeamId,
-                    }).remove();
-                    Toast({
-                        type: 'success',
-                        message: '删除成功',
-                        onClose: () => {
-                            t.loadTeam()
-                        },
-                    });
-                }
+        this.setData({
+                addingTeam: false,
+                newMemberId: ''
+            }, () => {
+                wx.showModal({
+                    title: '',
+                    content: '确认删除？',
+                    async success( res ) {
+                        if (res.confirm) {
+                            const db = wx.cloud.database()
+                            await db.collection('team').where({
+                                _id: t.data.myTeamId,
+                            }).remove();
+                            Toast({
+                                type: 'success',
+                                message: '删除成功',
+                                onClose: () => {
+                                    t.loadTeam()
+                                },
+                            });
+                        }
+                    }
+                })
+
             }
-        })
+        )
+
     },
 
 
@@ -224,9 +230,9 @@ Page({
             return
         }
 
-        const HisLeaderOpenId = (await util.getMyLeader(this.data.newMemberId))
-        console.log('HisLeaderOpenId',HisLeaderOpenId)
-        if(HisLeaderOpenId && HisLeaderOpenId !== await util.getOpenId()) {
+        const HisLeaderOpenId = ( await util.getMyLeader(this.data.newMemberId) )
+        console.log('HisLeaderOpenId', HisLeaderOpenId)
+        if (HisLeaderOpenId && HisLeaderOpenId !== await util.getOpenId()) {
             Toast({
                 type: 'fail',
                 message: '该成员已经加入另外小组， 请删除后再添加， 每个组员只能加入一个小组',
