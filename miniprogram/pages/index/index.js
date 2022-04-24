@@ -167,6 +167,7 @@ Page({
         this.setData({
             showCalendar: false,
             date: event.detail.toLocaleDateString('en-GB'),
+            currentDay: util.getCurrentDay(event.detail.toLocaleDateString('en-GB')),
         }, () => {
             this.loadPages(util.getPageTimeBlocks())
         });
