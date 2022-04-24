@@ -50,7 +50,7 @@ page {
 }
 .time_block_event_button wx-button wx-view{
   text-align: left;
-  min-height: 50px;
+  min-height: 25px;
 }
 
 .time_block_name {
