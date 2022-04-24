@@ -13,7 +13,8 @@ Page({
         hasTeam: false,
         addingTeam: false,
         myTeamId: '',
-        newMemberId: ''
+        newMemberId: '',
+        myTeamLeader: ''
     },
 
     async onLoad( options ) {
@@ -24,6 +25,7 @@ Page({
         })
     },
     async loadTeam() {
+
         wx.showLoading({
             title: 'loading',
         });
@@ -32,11 +34,15 @@ Page({
         const myTeamsRes = await db.collection('team').where({
             leader: openId,
         }).get()
+
         if (!myTeamsRes || !myTeamsRes.data || myTeamsRes.data.length === 0) {
+            const myTeamLeader = await util.getMyLeader(openId)
             this.setData({
                 myTeams: '',
-                hasTeam: false
+                hasTeam: false,
+                myTeamLeader: myTeamLeader
             })
+
         } else {
             this.setData({
                 myTeams: myTeamsRes.data[ 0 ].members,
@@ -45,11 +51,27 @@ Page({
             })
         }
 
+
+
         wx.hideLoading()
 
     },
     async createTeam() {
         let openId = await util.getOpenId()
+        const myLeaderOpenId = (await util.getMyLeader(openId))
+
+
+        if(myLeaderOpenId && myLeaderOpenId !== openId) {
+            Toast({
+                type: 'success',
+                message: '你已经被加入其它小组， 不能创建小组',
+                onClose: () => {
+                    this.loadTeam()
+                },
+            });
+            return
+        }
+
         const db = wx.cloud.database()
         const myTeamsRes = await db.collection('team').where({
             leader: openId,
@@ -178,6 +200,20 @@ Page({
             )
             return
         }
+
+        const HisLeaderOpenId = (await util.getMyLeader(this.data.newMemberId))
+        console.log('HisLeaderOpenId',HisLeaderOpenId)
+        if(HisLeaderOpenId && HisLeaderOpenId !== await util.getOpenId()) {
+            Toast({
+                type: 'fail',
+                message: '该成员已经加入另外小组， 请删除后再添加， 每个组员只能加入一个小组',
+                onClose: () => {
+                    this.loadTeam()
+                },
+            });
+            return
+        }
+
         myCurrentTeams.push(this.data.newMemberId)
 
         await db.collection('team').where({

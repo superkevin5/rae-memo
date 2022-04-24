@@ -33,6 +33,9 @@ App({
        console.log(e)
     });
 
+
+
+
       wx.getUserInfo({
           success: function(res) {
               var userInfo = res.userInfo

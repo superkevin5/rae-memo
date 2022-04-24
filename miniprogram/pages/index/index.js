@@ -104,6 +104,7 @@ Page({
         wx.showLoading({
             title: 'loading',
         });
+
         let openId = wx.getStorageSync('openId')
         if (!openId) {
             const d = await wx.cloud.callFunction({
@@ -123,18 +124,20 @@ Page({
             }
         }
 
+        const myLeaderOpenId = (await util.getMyLeader(openId)) || openId
+        console.log('myLeaderOpenId', myLeaderOpenId)
 
         const currentLocalDate = this.data.date
         const localDateArray = currentLocalDate.split('/')
         const db = wx.cloud.database()
         const res = await db.collection('memodb').where({
-            _openid: openId,
+            openId: myLeaderOpenId,
             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
         }).get()
         let res2 = { 'data': [] }
         if (res.data.length === 20) {
             res2 = await db.collection('memodb').where({
-                _openid: openId,
+                openId: myLeaderOpenId,
                 localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
             }).skip(20).get()
         }

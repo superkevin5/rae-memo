@@ -92,9 +92,14 @@ Component({
             endDateObj.setMinutes(parseInt(end[ 1 ],10))
             const localDateArray = this.data.date.split('/')
             const db = wx.cloud.database()
+
+            let openId = await util.getOpenId()
+            const myLeaderOpenId = (await util.getMyLeader(openId)) || openId
+
             await db.collection('memodb').add({
 
                 data: {
+                    openId: myLeaderOpenId,
                     startTime: startDateObj.toISOString(),
                     endTime: endDateObj.toISOString(),
                     description: this.data.eventDetail,

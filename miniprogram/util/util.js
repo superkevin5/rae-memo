@@ -178,6 +178,20 @@ function getPageTimeBlocks(  ) {
     return initTimeBlocks
 }
 
+async function getMyLeader( openId ) {
+    const db = wx.cloud.database()
+    const _ = db.command
+    const res = await db.collection('team').aggregate()
+        .match({
+            members: _.in([ '$members', openId ])
+        }).end();
+
+    if (res && Array.isArray(res.list) && res.list[ 0 ]) {
+        return res.list[ 0 ].leader
+    } else {
+        return
+    }
+}
 
 async function getOpenId() {
     let openId = wx.getStorageSync('openId')
@@ -340,7 +354,8 @@ module.exports = {
     formatTimeBlocktResponse: formatTimeBlocktResponse,
     formatCurrentDay: formatCurrentDay,
     getCurrentDay: getCurrentDay,
-    getOpenId: getOpenId
+    getOpenId: getOpenId,
+    getMyLeader: getMyLeader
 }
 
 

@@ -3,7 +3,10 @@
 
     <view  class="myOpen" >我的ID <van-tag plain type="primary"  size="large"> {{openId}}</van-tag></view>
     <view  class="myCopyBtn" ><van-button type="info" size="large"  bind:click="copyText">复制ID</van-button></view>
+    <view class="myOpen" wx:if="{{ myTeamLeader}}">我的组长是 <van-tag plain type="primary"  size="large"> {{myTeamLeader}}</van-tag></view>
+
   </view>
+
 
   <van-button  wx:if="{{ !hasTeam}}" type="info" size="large"  bind:click="createTeam">创建小组</van-button>
 
