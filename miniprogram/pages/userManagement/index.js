@@ -173,6 +173,29 @@ Page({
 
     },
 
+     deleteMyTeam: async function() {
+        const t = this
+        wx.showModal({
+            title: '',
+            content: '确认删除？',
+            async success( res ) {
+                if (res.confirm) {
+                    const db = wx.cloud.database()
+                    await db.collection('team').where({
+                        _id: t.data.myTeamId,
+                    }).remove();
+                    Toast({
+                        type: 'success',
+                        message: '删除成功',
+                        onClose: () => {
+                            t.loadTeam()
+                        },
+                    });
+                }
+            }
+        })
+    },
+
 
     saveNewTeamMember: async function () {
         const db = wx.cloud.database()

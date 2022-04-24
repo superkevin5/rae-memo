@@ -11,7 +11,10 @@
   <van-button  wx:if="{{ !hasTeam}}" type="info" size="large"  bind:click="createTeam">创建小组</van-button>
 
   <view wx:if="{{hasTeam}}" class="myTeam">
-    <view class="myTeamCount">我的组员: 组员个数{{myTeams.length}}</view>
+    <view class="myTeamCount">
+      我的组员: 组员个数{{myTeams.length}}
+      <van-button type="danger" size="small"  bind:click="deleteMyTeam">删除我的组</van-button>
+    </view>
 
     <van-swipe-cell right-width="{{ 65 }}" left-width="{{ 0 }}" wx:for="{{myTeams}}" wx:for-item="member">
 
