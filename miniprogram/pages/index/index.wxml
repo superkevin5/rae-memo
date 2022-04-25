@@ -50,7 +50,7 @@
            custom-style="height: 20%;"
            show="{{ showUpdateEvent }}" bind:close="onCloseUpdateEvent">
 
-    <van-button type="default" size="large"  bind:click="updateEvent">修改预约</van-button>
+    <!--<van-button type="default" size="large"  bind:click="updateEvent">修改预约</van-button>-->
     <van-button type="danger" size="large" bind:click="removeEvent">删除预约</van-button>
 
 </van-popup>
