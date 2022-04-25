@@ -332,5 +332,22 @@ Page({
             });
             wx.hideLoading();
         });
+    },
+    onShareAppMessage: function () {
+
+        return {
+            title: 'Dental memo',
+            imageUrl: '/images/background.png',
+            path: '/pages/index/index' // 路径，传递参数到指定页面。
+        }
+    },
+    onShareTimeline: function () {
+
+        return {
+            title: 'Dental memo',
+            imageUrl: '/images/background.png',
+            query: '/pages/index/index', // 路径，传递参数到指定页面。
+            path:  '/pages/index/index'
+        }
     }
 });

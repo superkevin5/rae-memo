@@ -276,5 +276,22 @@ Page({
                 },
             });
         })
+    },
+    onShareAppMessage: function () {
+
+        return {
+            title: 'Dental memo',
+            imageUrl: '/images/background.png',
+            path: '/pages/userManagement/index' // 路径，传递参数到指定页面。
+        }
+    },
+    onShareTimeline: function () {
+
+        return {
+            title: 'Dental memo',
+            imageUrl: '/images/background.png',
+            query: '/pages/userManagement/index', // 路径，传递参数到指定页面。
+            path:  '/pages/userManagement/index'
+        }
     }
 });
