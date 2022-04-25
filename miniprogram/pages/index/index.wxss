@@ -1,7 +1,7 @@
 /**index.wxss**/
 
 page {
-  background-color: #f6f6f6;
+  background-color: white;
   overflow: hidden;
 }
 .title {
@@ -25,6 +25,7 @@ page {
   top: 120rpx;
   width:100%;
   height:90%;
+  background-color: white;
 
 }
 .time_block {
@@ -44,9 +45,19 @@ page {
   display: flex;
   justify-content: flex-start;
   height: 100%;
+  border: none;
+  border-bottom: solid 1px;
+  border-color: #1989fa;
+  border-left: solid 5px;
+  border-left-color: rgb(60,179,113);
+  background-color: rgb(144,238,144);
 }
 .event_deleted {
   text-decoration: line-through;
+}
+
+.event_deleted wx-button {
+  background-color: rgb(240,128,128);
 }
 .time_block_event_button wx-button wx-view{
   text-align: left;
@@ -55,16 +66,18 @@ page {
 
 .time_block_name {
   border-top: solid 1px;
-  border-color: lightgrey;
+  border-color: #1989fa;
   font-size: 30rpx;
+  border-color: #1989fa;
   width: 12%;
+  color: darkgrey;
+  font-weight: bold;
 }
 
 .time_block_body {
   width: 88%;
   border-top: solid 1px;
-  border-left: solid 1px;
-  border-color: lightgrey;
+  border-color: #1989fa;
   overflow: hidden;
 }
 
