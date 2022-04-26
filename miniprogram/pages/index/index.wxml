@@ -42,7 +42,12 @@
 
 </view>
 <!--<van-dialog id="van-dialog" />-->
-<event-dialog id="van-dialog" showDialogProps="{{showDialog}}" dateProps="{{date}}" currentDayProps="{{currentDay}}"
+<event-dialog id="van-dialog"
+              wx:if="{{showDialog }}"
+              showDialogProps="{{showDialog}}"
+              dateProps="{{date}}"
+              currentDayProps="{{currentDay}}"
+              eventIdInUpdatingProps="{{eventIdInUpdating}}"
               bind:action="reloadPages"></event-dialog>
 <van-popup position="bottom"
            close-icon="close"
@@ -50,7 +55,7 @@
            custom-style="height: 20%;"
            show="{{ showUpdateEvent }}" bind:close="onCloseUpdateEvent">
 
-    <!--<van-button type="default" size="large"  bind:click="updateEvent">修改预约</van-button>-->
+    <van-button type="default" size="large"  bind:click="updateEvent">修改预约</van-button>
     <van-button type="danger" size="large" bind:click="removeEvent">删除预约</van-button>
 
 </van-popup>

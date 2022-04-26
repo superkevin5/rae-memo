@@ -125,7 +125,6 @@ Page({
         }
 
         const myLeaderOpenId = (await util.getMyLeader(openId)) || openId
-        console.log('myLeaderOpenId', myLeaderOpenId)
 
         const currentLocalDate = this.data.date
         const localDateArray = currentLocalDate.split('/')
@@ -135,19 +134,24 @@ Page({
             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
         }).get()
         let res2 = { 'data': [] }
+
         if (res.data.length === 20) {
             res2 = await db.collection('memodb').where({
                 openId: myLeaderOpenId,
                 localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
-            }).skip(20).get()
+            }).get()
         }
 
         const data = res.data
         const data2 = res2.data
-        const newTimeBlocks = util.formatTimeBlocktResponse([ ...data, ...data2 ], timeBlocks)
+        const newTimeBlocks = util.formatTimeBlocktResponse([ ...data, ...data2 ].sort(
+            (d1,d2)=>{
+
+                return  parseFloat(new Date(d1.startTime).getTime()) - parseFloat(new Date(d2.startTime).getTime())
+            }
+        ) , timeBlocks)
         this.setData({ timeBlocks: newTimeBlocks });
         wx.hideLoading();
-
     },
 
     onDisplay() {
@@ -213,6 +217,13 @@ Page({
         this.setData({
             showDialog: true
         })
+    },
+    updateEvent() {
+        this.setData({
+            showUpdateEvent: false,
+            showDialog: true,
+        })
+
     },
     async removeEvent() {
         const db = wx.cloud.database()

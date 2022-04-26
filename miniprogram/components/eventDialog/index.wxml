@@ -4,7 +4,7 @@
         use-slot
         title="{{filter.getCurrentDate(date)}} {{currentDay}}"
         show="{{ showDialog }}"
-        show-cancel-button
+        show-cancel-button="true"
         showConfirmButton="true"
         bind:close="onCloseDialog"
         confirmButtonText="保存"
