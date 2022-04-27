@@ -42,7 +42,6 @@ Component({
         date: '',
         eventIdInUpdatingProps: '',
         currentDayProps: '',
-        eventDetail: '',
         eventEndTime: util.getCurrentHAndM(),
         eventStartTime: util.getCurrentHAndM()
     },
@@ -102,7 +101,7 @@ Component({
         },
         onCreateEventDetail( e ) {
             this.setData({
-                eventDetail: e.detail
+                message: e.detail
             });
         },
         reloadPages: function () {
@@ -151,7 +150,7 @@ Component({
                             openId: myLeaderOpenId,
                             startTime: startDateObj.toISOString(),
                             endTime: endDateObj.toISOString(),
-                            description: this.data.eventDetail,
+                            description: this.data.message,
                             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
                         },
                     });
@@ -162,7 +161,7 @@ Component({
                         openId: myLeaderOpenId,
                         startTime: startDateObj.toISOString(),
                         endTime: endDateObj.toISOString(),
-                        description: this.data.eventDetail,
+                        description: this.data.message,
                         localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
                     }
 
