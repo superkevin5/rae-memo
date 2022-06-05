@@ -19,6 +19,7 @@
             value="{{eventStartTime}}"
             visible-item-count="2"
             bind:input="onCreateEventStartTime"
+            filter="{{filter2}}"
             title="开始时间"
             cancel-button-text=""
             confirm-button-text=""

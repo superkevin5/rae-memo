@@ -43,7 +43,15 @@ Component({
         eventIdInUpdatingProps: '',
         currentDayProps: '',
         eventEndTime: util.getCurrentHAndM(),
-        eventStartTime: util.getCurrentHAndM()
+        eventStartTime: util.getCurrentHAndM(),
+        filter2(type, options) {
+            console.log(type, options)
+            if (type === 'minute') {
+                return options.filter((option) => option % 15 === 0);
+            }
+
+            return options;
+        },
     },
 
     properties: {
