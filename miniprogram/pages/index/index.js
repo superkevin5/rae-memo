@@ -1,6 +1,7 @@
 // index.js
 // const app = getApp()
 import Toast from "../../miniprogram_npm/@vant/weapp/toast/toast";
+import { monthMap } from "../../util/util";
 
 const { envList } = require('../../envList.js');
 const util = require('../../util/util.js')
@@ -179,39 +180,76 @@ Page({
     preDay() {
 
         const currentDate = this.data.date
-        const d = currentDate.split('/')
-        const day = new Date()
-        day.setFullYear(d[ 2 ])
-        day.setMonth(d[ 1 ] - 1)
-        day.setDate(d[ 0 ])
-        const preDay = day
-        preDay.setDate(preDay.getDate() - 1);
-        this.setData({
-            date: preDay.toLocaleDateString('en-GB'),
-            currentDay: util.getCurrentDay(preDay.toLocaleDateString('en-GB')),
-            timeBlocks: util.getPageTimeBlocks()
-        }, () => {
-            this.loadPages(util.getPageTimeBlocks())
-        });
+
+        if(/\//.test(currentDate)) {
+
+            const d = currentDate.split('/')
+            const day = new Date()
+            day.setFullYear(d[ 2 ])
+            day.setMonth(d[ 1 ] - 1)
+            day.setDate(d[ 0 ])
+            const preDay = day
+            preDay.setDate(preDay.getDate() - 1);
+            this.setData({
+                date: preDay.toLocaleDateString('en-GB'),
+                currentDay: util.getCurrentDay(preDay.toLocaleDateString('en-GB')),
+                timeBlocks: util.getPageTimeBlocks()
+            }, () => {
+                this.loadPages(util.getPageTimeBlocks())
+            });
+        } else {
+            const d = currentDate.split(' ')
+            const day = new Date()
+            day.setFullYear(d[ 3 ])
+            day.setMonth(monthMap(d[ 1 ]) - 1)
+            day.setDate(d[ 2 ])
+            const preDay = day
+            preDay.setDate(preDay.getDate() - 1);
+            this.setData({
+                date: preDay.toLocaleDateString('en-GB'),
+                currentDay: util.getCurrentDay(preDay.toLocaleDateString('en-GB')),
+                timeBlocks: util.getPageTimeBlocks()
+            }, () => {
+                this.loadPages(util.getPageTimeBlocks())
+            });
+
+        }
 
     },
     nextDay() {
         const currentDate = this.data.date
-        const d = currentDate.split('/')
-        const day = new Date()
-        day.setFullYear(d[ 2 ])
-        day.setMonth(d[ 1 ] - 1)
-        day.setDate(d[ 0 ])
-        const nextDay = day
-        nextDay.setDate(nextDay.getDate() + 1);
-        this.setData({
-            date: nextDay.toLocaleDateString('en-GB'),
-            currentDay: util.getCurrentDay(nextDay.toLocaleDateString('en-GB')),
-            timeBlocks: util.getPageTimeBlocks()
-        }, () => {
-            this.loadPages(util.getPageTimeBlocks())
-        });
+        if(/\//.test(currentDate)) {
+            const d = currentDate.split('/')
+            const day = new Date()
+            day.setFullYear(d[ 2 ])
+            day.setMonth(d[ 1 ] - 1)
+            day.setDate(d[ 0 ])
+            const nextDay = day
+            nextDay.setDate(nextDay.getDate() + 1);
+            this.setData({
+                date: nextDay.toLocaleDateString('en-GB'),
+                currentDay: util.getCurrentDay(nextDay.toLocaleDateString('en-GB')),
+                timeBlocks: util.getPageTimeBlocks()
+            }, () => {
+                this.loadPages(util.getPageTimeBlocks())
+            });
+        } else {
+            const d = currentDate.split(' ')
+            const day = new Date()
+            day.setFullYear(d[ 3 ])
+            day.setMonth(monthMap(d[ 1 ]) - 1)
+            day.setDate(d[ 2 ])
+            const nextDay = day
+            nextDay.setDate(nextDay.getDate() + 1);
+            this.setData({
+                date: nextDay.toLocaleDateString('en-GB'),
+                currentDay: util.getCurrentDay(nextDay.toLocaleDateString('en-GB')),
+                timeBlocks: util.getPageTimeBlocks()
+            }, () => {
+                this.loadPages(util.getPageTimeBlocks())
+            });
 
+        }
     },
     createEvent( date ) {
         this.setData({

@@ -19,8 +19,13 @@ var msToHMS = function msToHMS( ISOTimeString ) {
 
 
 var getCurrentDate = function getCurrentDate(localDateString) {
-   var d =  localDateString.split('/')
-  return d[2] + '-' + d[1] + '-' + d[0];
+       var d =  localDateString.split('/')
+       if(d.length > 1) {
+         return d[2] + '-' + d[1] + '-' + d[0];
+       } else {
+         return localDateString
+       }
+
 }
 
 var getCurrentDay = function getCurrentDay(localDateString) {

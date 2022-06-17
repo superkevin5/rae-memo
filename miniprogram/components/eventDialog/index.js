@@ -3,6 +3,7 @@ const { isMac } = require('../../envList.js');
 const util = require('../../util/util.js')
 
 import Toast from '../../miniprogram_npm/@vant/weapp/toast/toast'
+import { monthMap } from "../../util/util";
 
 Component({
     attached: function () {
@@ -121,59 +122,115 @@ Component({
         },
         async onSave( e ) {
 
-            const end = this.data.eventEndTime.split(':')
-            const start = this.data.eventStartTime.split(':')
 
-            const currentDate = this.data.date
-            const d = currentDate.split('/')
-            var day = new Date()
-            day.setFullYear(d[ 2 ])
-            day.setMonth(d[ 1 ] - 1)
-            day.setDate(d[ 0 ])
-            const startDateObj = day
+                const end = this.data.eventEndTime.split(':')
+                const start = this.data.eventStartTime.split(':')
+                const currentDate = this.data.date
+            if(/\//.test(currentDate)) {
+                const d = currentDate.split('/')
+                var day = new Date()
+                day.setFullYear(d[ 2 ])
+                day.setMonth(d[ 1 ] - 1)
+                day.setDate(d[ 0 ])
+                const startDateObj = day
 
-            startDateObj.setHours(parseInt(start[ 0 ], 10))
-            startDateObj.setMinutes(parseInt(start[ 1 ], 10))
+                startDateObj.setHours(parseInt(start[ 0 ], 10))
+                startDateObj.setMinutes(parseInt(start[ 1 ], 10))
 
-            var day = new Date()
-            day.setFullYear(d[ 2 ])
-            day.setMonth(d[ 1 ] - 1)
-            day.setDate(d[ 0 ])
+                var day = new Date()
+                day.setFullYear(d[ 2 ])
+                day.setMonth(d[ 1 ] - 1)
+                day.setDate(d[ 0 ])
 
-            const endDateObj = day
-            endDateObj.setHours(parseInt(end[ 0 ], 10))
-            endDateObj.setMinutes(parseInt(end[ 1 ], 10))
-            const localDateArray = this.data.date.split('/')
-            const db = wx.cloud.database()
+                const endDateObj = day
+                endDateObj.setHours(parseInt(end[ 0 ], 10))
+                endDateObj.setMinutes(parseInt(end[ 1 ], 10))
+                const localDateArray = this.data.date.split('/')
+                const db = wx.cloud.database()
 
-            let openId = await util.getOpenId()
-            const myLeaderOpenId = ( await util.getMyLeader(openId) ) || openId
+                let openId = await util.getOpenId()
+                const myLeaderOpenId = ( await util.getMyLeader(openId) ) || openId
 
-            if(this.properties.eventIdInUpdatingProps){
-                await db.collection('memodb').where({
-                    _id: this.properties.eventIdInUpdatingProps
-                })
-                    .update({
+                if (this.properties.eventIdInUpdatingProps) {
+                    await db.collection('memodb').where({
+                        _id: this.properties.eventIdInUpdatingProps
+                    })
+                        .update({
+                            data: {
+                                openId: myLeaderOpenId,
+                                startTime: startDateObj.toISOString(),
+                                endTime: endDateObj.toISOString(),
+                                description: this.data.message,
+                                localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
+                            },
+                        });
+                } else {
+                    await db.collection('memodb').add({
+
                         data: {
                             openId: myLeaderOpenId,
                             startTime: startDateObj.toISOString(),
                             endTime: endDateObj.toISOString(),
                             description: this.data.message,
                             localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
-                        },
-                    });
+                        }
+
+                    })
+                }
             } else {
-                await db.collection('memodb').add({
 
-                    data: {
-                        openId: myLeaderOpenId,
-                        startTime: startDateObj.toISOString(),
-                        endTime: endDateObj.toISOString(),
-                        description: this.data.message,
-                        localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
-                    }
+                const d = currentDate.split(' ')
+                var day = new Date()
+                day.setFullYear(d[ 3 ])
+                day.setMonth(monthMap(d[ 1 ]) - 1)
+                day.setDate(d[ 2 ])
 
-                })
+                const startDateObj = day
+
+                startDateObj.setHours(parseInt(start[ 0 ], 10))
+                startDateObj.setMinutes(parseInt(start[ 1 ], 10))
+
+                var day = new Date()
+                day.setFullYear(d[ 3 ])
+                day.setMonth(monthMap(d[ 1 ]) - 1)
+                day.setDate(d[ 2 ])
+
+                const endDateObj = day
+                endDateObj.setHours(parseInt(end[ 0 ], 10))
+                endDateObj.setMinutes(parseInt(end[ 1 ], 10))
+                const localDateArray = this.data.date.split('/')
+                const db = wx.cloud.database()
+
+                let openId = await util.getOpenId()
+                const myLeaderOpenId = ( await util.getMyLeader(openId) ) || openId
+
+                if (this.properties.eventIdInUpdatingProps) {
+                    await db.collection('memodb').where({
+                        _id: this.properties.eventIdInUpdatingProps
+                    })
+                        .update({
+                            data: {
+                                openId: myLeaderOpenId,
+                                startTime: startDateObj.toISOString(),
+                                endTime: endDateObj.toISOString(),
+                                description: this.data.message,
+                                // localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
+                            },
+                        });
+                } else {
+                    await db.collection('memodb').add({
+
+                        data: {
+                            openId: myLeaderOpenId,
+                            startTime: startDateObj.toISOString(),
+                            endTime: endDateObj.toISOString(),
+                            description: this.data.message,
+                            // localStringDay: localDateArray[ 2 ] + '-' + localDateArray[ 1 ] + '-' + localDateArray[ 0 ]
+                        }
+
+                    })
+                }
+
             }
 
             Toast({

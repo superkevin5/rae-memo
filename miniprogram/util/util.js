@@ -318,12 +318,35 @@ function formatTimeBlocktResponse( data = [], timeBlocks ) {
     return timeBlocks
 }
 
+function monthMap(monthString) {
+    switch(monthString){
+        case 'Jan': return 1;
+        case 'Feb': return 2;
+        case 'Mar': return 3;
+        case 'Apr': return 4;
+        case 'May': return 5;
+        case 'Jun': return 6;
+        case 'Jul': return 7;
+        case 'Aug': return 8;
+        case 'Sep': return 9;
+        case 'Oct': return 10;
+        case 'Nov': return 11;
+        case 'Dec': return 12;
+
+    }
+
+}
+
+
 function formatCurrentDay(localDateString) {
     var d = localDateString.split('/')
     return d[2] + '-' + d[1] + '-' + d[0];
 }
 
 function getCurrentDay(localDateString) {
+
+    if(/\//.test(localDateString)) {
+
     var d = localDateString.split('/')
     var year = d[2]
     var month = d[1]
@@ -343,6 +366,19 @@ function getCurrentDay(localDateString) {
         case 5: return '周五';
         case 6: return '周六';
     }
+    } else {
+        var d = localDateString.split(' ')
+        var day = d[0]
+        switch(day){
+            case 'Sun': return '周日';
+            case 'Mon': return '周一';
+            case 'Tue': return '周二';
+            case 'Wed': return '周三';
+            case 'Thu': return '周四';
+            case 'Fri': return '周五';
+            case 'Sat': return '周六';
+        }
+    }
 }
 
 
@@ -355,7 +391,8 @@ module.exports = {
     formatCurrentDay: formatCurrentDay,
     getCurrentDay: getCurrentDay,
     getOpenId: getOpenId,
-    getMyLeader: getMyLeader
+    getMyLeader: getMyLeader,
+    monthMap: monthMap
 }
 
 
